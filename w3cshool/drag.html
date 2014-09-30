@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+  #drop1,
+  #drop2 {
+    width: 5em;
+    height: 5em;
+    border: 1px solid #aaaaaa;
+    margin: 1em;
+    padding: 1em;
+    text-align: center;
+    line-height: 5em;
+    float: left;
+  }
+  </style>
+  <script type="text/javascript">
+  function allowDrop(evt) {
+    evt.preventDefault();
+  }
+
+  function drag(evt) {
+    evt.dataTransfer.setData("Text", evt.target.id);
+  }
+
+  function drop(evt) {
+    evt.preventDefault();
+    var data = evt.dataTransfer.getData("Text");
+    evt.target.appendChild(document.getElementById(data));
+  }
+  </script>
+</head>
+
+<body>
+  <div id="drop1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div id="dragme" draggable="true" ondragstart="drag(event)">drag me</div>
+  </div>
+  <div id="drop2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</body>
+
+</html>
