@@ -1,0 +1,21 @@
+.jcarousel, div, ul {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  width: 80%;
+  margin: auto;
+  list-style-type: none;
+  position: relative;
+  border-style: solid;
+}
+ul li {
+  position: absolute;
+  left: 10%;
+  top: 0;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 200px;
+}
