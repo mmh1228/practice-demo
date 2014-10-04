@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style type="text/css">
+
+  #father {
+    position: relative;
+     height: 400px;
+     width: 150px; 
+     background-color: red;  
+  }
+
+  #div1 {
+    position: absolute;
+    bottom: 0;
+    height: 300px;
+    width: 150px;
+    background-color: green;
+    transition:height 1s;
+    -webkit-transition: height 1s easy-in-out;
+  }
+
+
+  #div1:hover {
+    height: 200px;
+  }
+  </style>
+
+</head>
+
+<body>
+  <div id="father">
+  <div id="div1"></div>
+</div>
+</body>
+
+</html>
