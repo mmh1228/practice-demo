@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style type="text/css">
+    #carousel {
+        position: relative;
+        width: 600px;
+        height: 400px;
+    }
+    #imgs {
+        position: absolute;
+        height: 400px;
+        width: 4200px;
+        z-index: 1;
+        top: 100px;
+        left: 200px;
+    }
+    #prev {
+        left: 220px;
+    }
+    #next {
+        right: -180px;
+    }
+    .arrow {
+        cursor: pointer;
+        line-height: 39px;
+        text-align: center;
+        font-size: 36px;
+        font-weight: bold;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, .3);
+        color: #FFF;
+        text-decoration: none;
+        z-index: 2;
+        position: absolute;
+        top: 300px;
+    }
+    .arrow:hover {
+        background-color: rgba(0, 0, 0, .7);
+    }
+    #bnts {
+        position: absolute;
+        bottom: -80px;
+        left: 420px;
+        z-index: 3;
+    }
+    #bnts span {
+        cursor: pointer;
+        float: left;
+        border: 1px solid #fff;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #333;
+        margin-right: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="carousel">
+        <div id="imgs">
+            <img src="img/1.jpg" alt="1" />
+            <img src="img/2.jpg" alt="2" />
+            <img src="img/3.jpg" alt="3" />
+            <img src="img/4.jpg" alt="4" />
+            <img src="img/5.jpg" alt="5" />
+        </div>
+        <div id="bnts">
+            <span class="on"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="#" id="prev" class="arrow">&lt;</a>
+        <a href="#" id="next" class="arrow">&gt;</a>
+    </div>
+</body>
+
+</html>

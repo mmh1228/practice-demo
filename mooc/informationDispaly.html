@@ -1,229 +1,264 @@
 <!DOCTYPE HTML>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 </html>
+
 <head>
-<style type="text/css">
-ul, p {
-	margin: 0;
-	padding: 0;
-}
-body {
-	font-family: Arial;
-	font-size: 16px;
-	color: #000;
-}
+    <style type="text/css">
+    ul,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: Arial;
+        font-size: 16px;
+        color: #000;
+    }
+    .box {
+        height: auto;
+        width: 800px;
+        margin: 0 auto;
+        border: 1px solid green;
+        overflow: hidden;
+    }
+    #listbnt,
+    #cardbnt {
+        width: 16px;
+        height: 20px;
+        display: inline-block;
+        float: right;
+        margin: 5px 5px 20px;
+    }
+    .bnt-list-on {
+        background: #E0E0E0 url("../icon/align.jpg") -38px 0px;
+    }
+    .bnt-list-off {
+        background: #E0E0E0 url("../icon/align.jpg") -21px 0px;
+    }
+    .bnt-card-on {
+        background: #E0E0E0 url("../icon/align.jpg") -38px -34px;
+    }
+    .bnt-card-off {
+        background: #E0E0E0 url("../icon/align.jpg") -21px -34px;
+    }
+    ul {
+        clear: both;
+        list-style: none;
+        width: 95%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .a-img {
+    	display: block;
+    	height: 200px;
+    	overflow: hidden;
+    }
+    .small {
+        display: block;
+        height: 50px;
+    }
 
-.box {
-	height: auto;
-	width: 60%;
-	margin: 0 auto;
-	border: 1px solid green;
-	overflow: hidden;
-}
-#listbnt, #cardbnt {
-	width: 16px;
-	height: 20px;
-	display: inline-block;
-	float: right;
-	margin: 5px 5px 20px;
-}
+    li {
+        width: auto;
+        float: left;
+        margin: 11px;
+        border: 1px solid green;
+    }
+    .buttom {
+        background: #E0E0E0;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    p a,
+    p span {
+        display: block;
+        padding-left: 10px;
+    }
+    a {
+        text-decoration: none;
+    }
+    </style>
+    <script type="text/javascript">
+    window.onload = function() {
+        var listBnt = document.getElementById("listbnt");
+        var cardBnt = document.getElementById("cardbnt");
+        var imgs = document.getElementsByTagName("img");
 
-.bnt-list-on {
-	background: #E0E0E0 url("../icon/align.jpg") -38px 0px;
-}
-.bnt-list-off {
-	background: #E0E0E0 url("../icon/align.jpg") -21px 0px;
-}
-.bnt-card-on {
-	background: #E0E0E0 url("../icon/align.jpg") -38px -34px;
-}
-.bnt-card-off {
-	background: #E0E0E0 url("../icon/align.jpg") -21px -34px;
-}
-ul {
-	clear: both;
-	list-style: none;
-	width: 95%;
-	margin: 0 auto;
-	overflow: hidden;
-}
+        listBnt.onclick = function() {
+            listBnt.className = "bnt-list-off";
+            cardBnt.className = "bnt-card-on";
+            for (var i = 0; i < imgs.length; i++) {
+                imgs[i].src = "../img/small.jpg";
+                imgs[i].parentNode.className = "small";
+            }
+        }
 
-.small {
-	display: inline;
-}
-
-.big {
-	display: block;
-}
-
-li {
-	float: left;
-	margin: 11px;
-	border: 1px solid green;
-}
-
-.buttom {
-	background: #E0E0E0;
-	display: block;
-	height:40px;
-	line-height: 40px; 
-	text-align: center;
-}
-
-p a, p span {
-	display: block;
-	padding-left: 10px;
-}
-
-a {
-	text-decoration: none;
-}
-
-</style>
-<script type="text/javascript">
-	window.onload = function() {
-	   var listBnt = document.getElementById("listbnt");
-	   var cardBnt = document.getElementById("cardbnt");
-	   var imgs = document.getElementsByTagName("img");
-
-	 listBnt.onclick = function() {
-	 	listBnt.className = "bnt-list-off";
-	 	cardBnt.className = "bnt-card-on";
-		for(var i=0; i<imgs.length; i++) {
-		  imgs[i].src = "../img/small.jpg";
-		  // imgs[i].parentNode.className = "small";
-		}
-	 }
-
-	 cardBnt.onclick = function() {
-	 	listBnt.className = "bnt-list-on";
-	 	cardBnt.className = "bnt-card-off";
-	 }
-	}
-</script>
+        cardBnt.onclick = function() {
+            listBnt.className = "bnt-list-on";
+            cardBnt.className = "bnt-card-off";
+            for (var i = 0; i < imgs.length; i++) {
+                imgs[i].src = "../img/big.jpg";
+                imgs[i].parentNode.className = "a-img";
+            }
+        }
+    }
+    </script>
 </head>
-<body>
-	<div class="box">
-		<div>
-			<a href="#" id="listbnt" title="list-style" class="bnt-list-on"></a>
-			<a href="#" id="cardbnt" title="list-card" class="bnt-card-off"></a>
-		</div>
-		<ul class="card">
 
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-		      <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-		      <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-			<li>
-			  <a><img src="../img/big.jpg" /></a>
-			  <p>
-			    <a href="#">Example</a>
-			    <span>Big pictures</span>
-			  </p>
-			  <div class="buttom">Display</div>
-			</li>
-		</ul>
-	</div>
+<body>
+    <div class="box">
+        <div>
+            <a href="#" id="listbnt" title="list-style" class="bnt-list-on"></a>
+            <a href="#" id="cardbnt" title="list-card" class="bnt-card-off"></a>
+        </div>
+        <ul class="card">
+
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+            <li>
+                <a class="a-img">
+                    <img src="../img/big.jpg" />
+                </a>
+                <p>
+                    <a href="#">Example</a>
+                    <span>Big pictures</span>
+                </p>
+                <div class="buttom">Display</div>
+            </li>
+        </ul>
+    </div>
 </body>
+
 </html>
