@@ -89,6 +89,18 @@
                 }
             }
         }
+
+        function showPicture(index) {
+            imgs.style.left = index * (-600) + "px";
+            for(var i = 0; i < bnts.length; i++) {
+                if(i != index) {
+                    bnts[i].className = "";
+                }else {
+                    bnts[i].className = "on";
+                }
+            }
+        }
+
         // next.onclick = animate(-600);
         // prev.onclick = animate(600);
         next.onclick = function() {
@@ -101,10 +113,12 @@
         }
 
         for(var i = 0; i<bnts.length; i++) {
+
             bnts[i].onclick = function() {
-                alert(bnts[i]);
-                animate(i * (-600));
-            }
+                return function() {
+                    showPicture(i);
+                };
+            }();
         }
     };
     </script>
