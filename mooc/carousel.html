@@ -70,6 +70,7 @@
         var carousel = document.getElementById("carousel");
         var imgs = document.getElementById("imgs");
         var bnts = document.getElementById("bnts").getElementsByTagName("span");
+        var bnt = document.getElementById("bnts");
         var prev = document.getElementById("prev");
         var next = document.getElementById("next");
 
@@ -112,14 +113,23 @@
 
         }
 
-        for(var i = 0; i<bnts.length; i++) {
-
-            bnts[i].onclick = function(i) {
-                return function() {
-                    showPicture(i);
-                };
-            }(i);
+        //事件委托方式--推荐
+        bnt.onclick = function(e) {
+            e = e || window.event;
+            var targetNode = e.target || e.srcElement;
+            var index = targetNode.getAttribute("index");
+            showPicture(index);
         }
+
+        //循环绑定事件方式--不推荐
+        // for(var i = 0; i<bnts.length; i++) {
+        //     bnts[i].onclick = function(i) {
+        //         return function() {
+        //             showPicture(i);
+        //         };
+        //     }(i);
+        // }
+
     };
     </script>
 </head>
@@ -135,10 +145,10 @@
         </div>
         <div id="bnts">
             <span class="on"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span index="1"></span>
+            <span index="2"></span>
+            <span index="3"></span>
+            <span index="4"></span>
         </div>
         <a href="#" id="prev" class="arrow">&lt;</a>
         <a href="#" id="next" class="arrow">&gt;</a>
