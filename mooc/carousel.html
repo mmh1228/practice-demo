@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style type="text/css">
+    #carousel {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        overflow: hidden;
+    }
+    #imgs {
+        position: absolute;
+        height: 400px;
+        width: 4200px;
+        z-index: 1;
+        overflow: hidden;
+    }
+        #imgs img {
+        float: left;
+    }
+    
+    #prev {
+        left: 20px;
+    }
+    #next {
+        right: 20px;
+    }
+    .arrow {
+        cursor: pointer;
+        line-height: 39px;
+        text-align: center;
+        font-size: 36px;
+        font-weight: bold;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, .3);
+        color: #FFF;
+        text-decoration: none;
+        z-index: 2;
+        position: absolute;
+        top: 200px;
+    }
+    .arrow:hover {
+        background-color: rgba(0, 0, 0, .7);
+    }
+    #bnts {
+        position: absolute;
+        bottom: 20px;
+        left: 250px;
+        z-index: 3;
+    }
+    #bnts span {
+        cursor: pointer;
+        float: left;
+        border: 1px solid #FFF;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #333;
+        margin-right: 5px;
+    }
+    #bnts .on {
+        background-color: #FFF;
+    }
+    </style>
+
+    <script>
+    window.onload = function() {
+        var carousel = document.getElementById("carousel");
+        var imgs = document.getElementById("imgs");
+        var bnts = document.getElementById("bnts").getElementsByTagName("span");
+        var bnt = document.getElementById("bnts");
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+
+        function animate(offset) {
+            imgs.style.left = parseInt(imgs.style.left) + offset + "px";        
+            if(parseInt(imgs.style.left) <= -3000){
+                imgs.style.left = 0 + "px";
+            }else if(parseInt(imgs.style.left) >= 600) {
+                imgs.style.left = -2400 + "px";
+            }
+            var index = Math.abs(parseInt(imgs.style.left)/600);
+            for(var i = 0; i < bnts.length; i++) {
+                if(i != index) {
+                    bnts[i].className = "";
+                }else {
+                    bnts[i].className = "on";
+                }
+            }
+        }
+
+        function showPicture(index) {
+            imgs.style.left = index * (-600) + "px";
+            for(var i = 0; i < bnts.length; i++) {
+                if(i != index) {
+                    bnts[i].className = "";
+                }else {
+                    bnts[i].className = "on";
+                }
+            }
+        }
+
+        // next.onclick = animate(-600);
+        // prev.onclick = animate(600);
+        next.onclick = function() {
+            animate(-600);
+
+        }
+        prev.onclick = function() {
+            animate(600);
+
+        }
+
+        //事件委托方式--推荐
+        bnt.onclick = function(e) {
+            e = e || window.event;
+            var targetNode = e.target || e.srcElement;
+            var index = targetNode.getAttribute("index");
+            showPicture(index);
+        }
+
+        //循环绑定事件方式--不推荐
+        // for(var i = 0; i<bnts.length; i++) {
+        //     bnts[i].onclick = function(i) {
+        //         return function() {
+        //             showPicture(i);
+        //         };
+        //     }(i);
+        // }
+
+    };
+    </script>
+</head>
+
+<body>
+    <div id="carousel">
+        <div id="imgs" style="left:0px">
+            <img src="img/1.jpg" alt="1" />
+            <img src="img/2.jpg" alt="2" />
+            <img src="img/3.jpg" alt="3" />
+            <img src="img/4.jpg" alt="4" />
+            <img src="img/5.jpg" alt="5" />
+        </div>
+        <div id="bnts">
+            <span class="on"></span>
+            <span index="1"></span>
+            <span index="2"></span>
+            <span index="3"></span>
+            <span index="4"></span>
+        </div>
+        <a href="#" id="prev" class="arrow">&lt;</a>
+        <a href="#" id="next" class="arrow">&gt;</a>
+    </div>
+</body>
+
+</html>
